@@ -1,7 +1,21 @@
-{% extends 'main.html' %}
+{% extends "main.html" %}
+
+{% block title %}FOCAI{% endblock title %}
 
 {% block content %}
-
-<h1>Hello, World!</h1>
-
+    <div class="content">
+        <div class="page_title_container">
+            <h1 class="page_title">Home</h1>
+        </div>
+        <div class="data">
+            <div class="study_time dataItem">
+                <div class="dataItem_title"><h5>TEMPO DE ESTUDO</h5></div>
+                <div class="dataItem_info"><h2>66h12min</h2></div>
+            </div>
+            <div class="performance dataItem">
+                <div class="dataItem_title"><h5>DESEMPENHO</h5></div>
+                <div class="dataItem_info"><h2>86%</h2></div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
