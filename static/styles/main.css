@@ -1,4 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
+<<<<<<< HEAD
+    font-family:'arial';
+    overflow-x: hidden;
+    background-color: #655555;
+    color: white;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.content{
+    height: 100%;
+    margin-top: 15vh;
+=======
     background-color: rgb(255, 255, 255);
     color: rgb(255, 0, 0);
+>>>>>>> 87dcd79c4569b20f97a736498f5c075a2283b315
 }
