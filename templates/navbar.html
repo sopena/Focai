@@ -1,3 +1,4 @@
+{% load static %}
 <div class="sidebar_section">
     <div class="sidebar_btn">
         <btn class="sidebar_btn_img" onclick="sidebar_btn_click()">
@@ -6,11 +7,23 @@
             <div class="sidebar_btn_line"></div>
         </btn>
     </div>
-    <a href="" class="symbol"><h1>FOCAI</h1></a>
+    <a href="{% url 'home' %}" class="symbol"><h1>FOCAI</h1></a>
 </div>
 
 <div class="header_utilities">
-    <div class="profile">
-        <a href=""><img src="" alt=""></a>
-    </div>
+    {% if request.user.is_authenticated %}
+        <div class="profile">
+                <a href=""><img src="{% static 'img/avatar.svg' %}" alt=""></a>
+        </div>
+        <div>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    {% else %}
+        <div class="profile">
+            <a href="{% url 'login' %}"><img src="{% static 'img/avatar.svg' %}" alt=""></a>
+        </div>
+        <div>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+    {% endif %}
 </div>

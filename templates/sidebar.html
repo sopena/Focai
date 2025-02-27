@@ -1,7 +1,8 @@
+{% load static %}
 <div class="sidebar">
     <div class="sidebar_content">
         <a href="{% url 'home' %}" class="sidebar_item">
-            <img src="static/img/homeBtn.png" alt="">
+            <img src="{% static 'img/homeBtn.png' %}" alt="">
             <span>Home</span>
         </a>
     </div>

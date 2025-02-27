@@ -6,14 +6,20 @@
     <div class="content">
         <div class="page_title_container">
             <h1 class="page_title">Home</h1>
+            
         </div>
+        
+        {% if request.user.is_authenticated %}
+            <h3>Welcome {{request.user.first_name}}</h3>
+        {% endif %}
+        
         <div class="data">
             <div class="study_time dataItem">
-                <div class="dataItem_title"><h5>TEMPO DE ESTUDO</h5></div>
-                <div class="dataItem_info"><h2>66h12min</h2></div>
+                <div class="dataItem_title"><h4>TEMPO DE ESTUDO</h4></div>
+                <div class="dataItem_info"><h2>{{time_studied}}</h2></div>
             </div>
             <div class="performance dataItem">
-                <div class="dataItem_title"><h5>DESEMPENHO</h5></div>
+                <div class="dataItem_title"><h4>DESEMPENHO</h4></div>
                 <div class="dataItem_info"><h2>86%</h2></div>
             </div>
         </div>

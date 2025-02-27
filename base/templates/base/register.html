@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main class="register">
+
+<h1>Register Page</h1>
+
+<form class="form" action="" method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form__group form__group">
+      <label for="fullname">{{field.label}}</label>
+      {{field}}
+    </div>
+    {% endfor %}
+
+    <button>
+        <input type="button" value="Submit">
+    </button>
+    
+</form>
+</main>
+
+{% endblock content %}
