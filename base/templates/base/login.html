@@ -27,6 +27,15 @@
             <a href="{% url 'register' %}">Criar Conta</a>
         </div>
 
+        <div>
+            {% if error_user_not_exist %}
+                {{error_user_not_exist}}            
+            {% else %}
+                {{error_password_not_exist}}
+            {% endif %}
+
+        </div>
+
     </form>
 </main>
 

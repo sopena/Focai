@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<main class = subjects>
+    {% if request.user.is_authenticated %}
+        {% for i in user_subjects %}
+        <div>
+            <h3>{{i.subject.name}}</h3>
+            <a href="{% url 'delete_subject' i.subject.id %}">Excluir</a>
+            
+        </div>
+        {% endfor %}
+
+        <a href="{% url 'addsubject' %}">Adicionar Disciplina</a>
+
+    {% endif %}
+</main>
+
+
+{% endblock content %}

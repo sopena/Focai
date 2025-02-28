@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<main class="addstudy">
+    <h1>Add Study</h1>
+
+    <form class="form" action="" method="POST">
+        {% csrf_token %}
+
+        <div class="form__group form__group">
+            <label for="subject">Matéria</label>
+            {{form.subject}}
+        </div>
+
+        <div class="form__group form__group">
+            <label for="subject">Questões Certas</label>
+            {{form.correct_answers}}
+        </div>
+
+        <div class="form__group form__group">
+            <label for="subject">Questões Erradas</label>
+            {{form.wrong_answers}}
+        </div>
+
+        <div class="form__group form__group">
+            <label for="subject">Tempo Estudado</label>
+            {{form.time_studied}}
+        </div>
+
+        <div class="form__group form__group">
+            <label for="subject">Quando Estudou</label>
+            {{form.last_study}}
+        </div>
+
+        <button>
+            <input type="button" value="Add Study">
+        </button>
+    </form>
+</main>
+
+
+{% endblock content %}

@@ -55,10 +55,12 @@ class Subjects(models.Model):
     
 
 class UserSubjects(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE ,related_name='user_subjects')
+    user = models.ForeignKey(User, on_delete=models.CASCADE , related_name='user_subjects')
     subject = models.ForeignKey(Subjects, on_delete=models.CASCADE, related_name='user_subjects')
-    time_studied = models.DurationField()
-    last_study = models.DateTimeField(auto_now=True)
+    correct_answers = models.PositiveIntegerField(null=True, blank=True)
+    wrong_answers = models.PositiveIntegerField(null=True, blank=True)
+    time_studied = models.DurationField(null=True, blank=True)
+    last_study = models.DateField(auto_now=False, blank=True, null=True)
 
     def __str__(self):
         return "{} - {} - time studied: ({}) - last study: ({})".format(self.user.username, self.subject.name, self.time_studied, self.last_study)
