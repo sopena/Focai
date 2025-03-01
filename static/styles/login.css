@@ -1,0 +1,51 @@
+.login{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_form{
+    width: 30%;
+    height: 70%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #8f7070;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 20px;
+}
+
+.form_item, .submit_btn{
+    width: 50%;
+
+    margin-block: 1em;
+}
+
+.form_item label{
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.form_item input
+{
+    width: 100%;
+    margin-top: .2em;
+}
+
+.sign_up{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 10px;
+}
+
+.sign_up span{
+    margin-right: 5px;
+}

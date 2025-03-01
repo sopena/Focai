@@ -4,7 +4,9 @@
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
     
     width: 0%;
     height: 100%;
@@ -20,10 +22,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     
     width: 100%;
-    height: 90%;
     margin-top: 18vh;
 }
 
@@ -34,27 +34,51 @@
     text-decoration: none;
     
     width: 80%;
-    height: 8%;
+    height: 50px;
+
+
+    margin-block: 10px;
     
     border-radius: 20px;
     cursor: pointer;
+
+    transition: .5s;
     
     background-color: #F28989;
     color: white;
 }
 
-
-
-.sidebar_item img{
+.sidebar_item .icon{
     width: 10%;
     margin-left: 10%;
+    transition: .1s;
 }
 
-.sidebar_item span{
+.side_bar_item_text{
+    display: inline-block;
+
+    font-size: 1rem;
     margin-left: 5%;
 }
 
+.side_bar_item_text::after
+{   content: '';
+    width: 0;
+    height: 1px;
+    display: block;
+    background: black;
+    transition: .5s;
+}
+
 .sidebar_item:hover{
-    background-color: #d37878;
-    text-decoration:underline;
+    color: black;
+    background-color: #ff9f9f;
 }   
+
+.sidebar_item:hover .icon{
+    color: black;
+}
+
+.sidebar_item:hover .side_bar_item_text::after{
+    width: 100%;
+}

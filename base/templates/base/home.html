@@ -4,18 +4,38 @@
 
 {% block content %}
     <div class="content">
-        <div class="page_title_container">
-            <h1 class="page_title">Home</h1>
+        <div class="page_content_welcome_container">
+            <div class="page_content_welcome">
+                <h1 class="page_content_welcome_title">Home</h1>
+
+                {% if request.user.is_authenticated %}
+                <h3 class="welcome_message page_content_welcome_text">Seja bem-vindo(a) {{request.user.first_name}}</h3>
+                {% endif %}
+                
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'addstudy' %}" class="add_study_btn">Add Study</a>
+                {% endif %}
+            </div>
         </div>
+        
         <div class="data">
             <div class="study_time dataItem">
-                <div class="dataItem_title"><h5>TEMPO DE ESTUDO</h5></div>
-                <div class="dataItem_info"><h2>66h12min</h2></div>
+                <div class="dataItem_title"><h4>TEMPO DE ESTUDO</h4></div>
+                {% if user.is_authenticated %}
+                <div class="dataItem_info"><h2>{{hours}}h{{minutes}}min</h2></div>
+                {% else %}
+                <div class="dataItem_info"><h2>00h00min</h2></div>
+                {% endif %}
             </div>
             <div class="performance dataItem">
-                <div class="dataItem_title"><h5>DESEMPENHO</h5></div>
-                <div class="dataItem_info"><h2>86%</h2></div>
+                <div class="dataItem_title">
+                    <h4>DESEMPENHO</h4>
+                    <p>{{correct_answers}} Acertos</p>
+                    <p>{{wrong_answers}} Erros</p>
+                </div>
+                <div class="dataItem_info"><h2>{{percent_correct_asw}}%</h2></div>
             </div>
-        </div>
+        </div>        
     </div>
+    
 {% endblock content %}

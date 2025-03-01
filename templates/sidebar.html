@@ -1,8 +1,13 @@
+{% load static %}
 <div class="sidebar">
     <div class="sidebar_content">
         <a href="{% url 'home' %}" class="sidebar_item">
-            <img src="static/img/homeBtn.png" alt="">
-            <span>Home</span>
+            <span class="material-symbols-outlined icon">home</span>
+            <span class="side_bar_item_text">Home</span>
+        </a>
+        <a href="{% url 'subjects' %}" class="sidebar_item">
+            <span class="material-symbols-outlined icon">layers</span>
+            <span class="side_bar_item_text">Disciplinas</span>
         </a>
     </div>
 </div>
