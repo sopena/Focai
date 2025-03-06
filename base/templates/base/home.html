@@ -35,6 +35,16 @@
                 </div>
                 <div class="dataItem_info"><h2>{{percent_correct_asw}}%</h2></div>
             </div>
+            
+            <!-- Cria o calendario de estudos -->
+            <table border="1">
+                <tr>
+                    {% for day, estudou in calendar_data.items %}
+                        <td>{{ day }}, {{estudou}}</td>
+                    {% endfor %}
+                </tr>
+            </table>
+
         </div>        
     </div>
     

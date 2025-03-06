@@ -5,8 +5,10 @@ from django.db.models import Sum, Min
 from django.contrib.auth import login
 from .models import User, UserSubjects, Subjects
 from .forms import CustomUserCreationForm, AddStudyForm, AddSubjectForm
-from utils.studies import calc_time_studied, calc_percent_asw, user_subjects
-from datetime import timedelta
+from utils.studies import calc_time_studied, calc_percent_asw, calendar
+
+from datetime import date, timedelta
+from django.db.models import Min
 
 def home(request):
     
@@ -14,14 +16,19 @@ def home(request):
         hours, minutes, seconds = calc_time_studied(request)
         percent_correct_asw, correct_answers, wrong_answers = calc_percent_asw(request)
 
+        calendar_data = calendar(request)
+
         context = {'hours': hours, 
                    'minutes': minutes, 
                    'percent_correct_asw': percent_correct_asw, 
                    'correct_answers': correct_answers, 
                    'wrong_answers': wrong_answers,
+                   'calendar_data': calendar_data,
                    }
+        
     else:
-        context = {'time_studied': 0, 'percent_correct_asw': 0}
+        calendar_data = None
+        context = {'time_studied': 0, 'percent_correct_asw': 0, 'calendar_data': calendar_data,}
 
     return render(request, 'base/home.html', context)
 
